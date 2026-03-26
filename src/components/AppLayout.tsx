@@ -90,7 +90,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         <button
-          onClick={() => { logout(); navigate("/"); handleNavClick(); }}
+          onClick={async () => { await logout(); navigate("/"); handleNavClick(); }}
           className="flex items-center gap-2 px-3 py-2 w-full text-sm text-muted-foreground hover:text-destructive transition-colors rounded-lg hover:bg-secondary"
         >
           <LogOut className="w-4 h-4" />
