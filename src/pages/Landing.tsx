@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Sparkles, Brain, Users, Map, Shield, ArrowRight, Zap, Target, Heart } from "lucide-react";
+import { Brain, Users, Map, Shield, ArrowRight, Zap, Target, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoImg from "@/assets/logo.png";
 
 const features = [
   { icon: Brain, title: "AI Mentor Engine", description: "A real-time mentor that understands your personality, ambitions, and psychology — not just your resume." },
@@ -26,9 +27,7 @@ export default function Landing() {
       <nav className="fixed top-0 w-full z-50 glass">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-primary-foreground" />
-            </div>
+            <img src={logoImg} alt="Synapse" className="w-8 h-8 rounded-lg object-cover" />
             <span className="text-lg font-bold text-foreground">Synapse</span>
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
@@ -143,7 +142,7 @@ export default function Landing() {
       <footer className="border-t border-border py-6 sm:py-8 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-primary" />
+            <img src={logoImg} alt="Synapse" className="w-4 h-4 rounded object-cover" />
             <span>Synapse</span>
           </div>
           <p className="text-xs sm:text-sm">© 2026 Synapse. Built with intelligence and empathy.</p>
