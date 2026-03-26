@@ -49,6 +49,7 @@ function AppRoutes() {
         <Route path="/mentor" element={<ProtectedRoute><Mentor /></ProtectedRoute>} />
         <Route path="/roadmap" element={<ProtectedRoute><Roadmap /></ProtectedRoute>} />
         <Route path="/chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
+        <Route path="/onboarding" element={isAuthenticated ? <Onboarding /> : <Navigate to="/auth" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
