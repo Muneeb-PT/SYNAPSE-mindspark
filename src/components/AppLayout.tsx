@@ -4,9 +4,10 @@ import { useAuth } from "@/lib/auth-context";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   LayoutDashboard, User, MessageSquare, Map, Brain, LogOut,
-  Sparkles, Briefcase, Menu, X,
+  Briefcase, Menu, X,
 } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import logoImg from "@/assets/logo.png";
 
 const sidebarLinks = {
   seeker: [
