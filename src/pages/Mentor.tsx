@@ -4,11 +4,12 @@ import { Brain, Send, Sparkles, Lightbulb, Target, BarChart3 } from "lucide-reac
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { aiMentorQuestions, aiResponses, ChatMessage } from "@/lib/mock-data";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const quickActions = [
-  { label: "Career Suggestions", icon: Target, key: "career" },
-  { label: "Skill Gap Analysis", icon: BarChart3, key: "skill_gap" },
-  { label: "Generate Roadmap", icon: Lightbulb, key: "roadmap" },
+  { label: "Career", icon: Target, key: "career" },
+  { label: "Skill Gaps", icon: BarChart3, key: "skill_gap" },
+  { label: "Roadmap", icon: Lightbulb, key: "roadmap" },
 ];
 
 export default function Mentor() {
@@ -19,6 +20,7 @@ export default function Mentor() {
   const [isTyping, setIsTyping] = useState(false);
   const [questionIndex, setQuestionIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
@@ -59,15 +61,14 @@ export default function Mentor() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto flex flex-col h-[calc(100vh-4rem)]">
-      {/* Header */}
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center">
-          <Brain className="w-5 h-5 text-primary-foreground" />
+    <div className={`max-w-3xl mx-auto flex flex-col ${isMobile ? "h-[calc(100vh-5rem)]" : "h-[calc(100vh-4rem)]"}`}>
+      <div className="flex items-center gap-3 mb-4 sm:mb-6">
+        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-primary flex items-center justify-center">
+          <Brain className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
         </div>
         <div>
-          <h1 className="text-lg font-bold text-foreground">AI Mentor</h1>
-          <p className="text-xs text-muted-foreground">Your personal career intelligence</p>
+          <h1 className="text-base sm:text-lg font-bold text-foreground">AI Mentor</h1>
+          <p className="text-[10px] sm:text-xs text-muted-foreground">Your personal career intelligence</p>
         </div>
         <div className="ml-auto flex items-center gap-1">
           <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
@@ -75,13 +76,12 @@ export default function Mentor() {
         </div>
       </div>
 
-      {/* Quick actions */}
-      <div className="flex gap-2 mb-4">
+      <div className="flex gap-2 mb-3 sm:mb-4 overflow-x-auto pb-1">
         {quickActions.map((action) => (
           <button
             key={action.key}
             onClick={() => handleQuickAction(action.key)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-card text-xs font-medium text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-card text-xs font-medium text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors whitespace-nowrap"
           >
             <action.icon className="w-3 h-3" />
             {action.label}
@@ -89,8 +89,7 @@ export default function Mentor() {
         ))}
       </div>
 
-      {/* Chat area */}
-      <div ref={scrollRef} className="flex-1 overflow-y-auto space-y-4 pr-2 mb-4">
+      <div ref={scrollRef} className="flex-1 overflow-y-auto space-y-4 pr-1 sm:pr-2 mb-3 sm:mb-4">
         <AnimatePresence>
           {messages.map((msg) => (
             <motion.div
@@ -100,7 +99,7 @@ export default function Mentor() {
               className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
             >
               <div
-                className={`max-w-[80%] p-4 rounded-2xl text-sm leading-relaxed ${
+                className={`max-w-[90%] sm:max-w-[80%] p-3 sm:p-4 rounded-2xl text-sm leading-relaxed ${
                   msg.sender === "user"
                     ? "bg-primary text-primary-foreground rounded-br-md"
                     : "bg-card border border-border text-card-foreground rounded-bl-md"
@@ -131,16 +130,15 @@ export default function Mentor() {
         )}
       </div>
 
-      {/* Input */}
-      <div className="flex gap-2 pb-4">
+      <div className="flex gap-2 pb-2 sm:pb-4">
         <Input
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSend()}
-          placeholder="Ask your AI Mentor anything..."
+          placeholder="Ask your AI Mentor..."
           className="bg-card border-border"
         />
-        <Button onClick={handleSend} className="bg-gradient-primary text-primary-foreground hover:opacity-90 px-4">
+        <Button onClick={handleSend} className="bg-gradient-primary text-primary-foreground hover:opacity-90 px-3 sm:px-4">
           <Send className="w-4 h-4" />
         </Button>
       </div>

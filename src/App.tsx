@@ -1,20 +1,30 @@
+import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider, useAuth } from "@/lib/auth-context";
-import Landing from "./pages/Landing";
-import Auth from "./pages/Auth";
-import Dashboard from "./pages/Dashboard";
-import Profile from "./pages/Profile";
-import Mentor from "./pages/Mentor";
-import Roadmap from "./pages/Roadmap";
-import Chat from "./pages/Chat";
 import AppLayout from "./components/AppLayout";
-import NotFound from "./pages/NotFound";
+
+const Landing = lazy(() => import("./pages/Landing"));
+const Auth = lazy(() => import("./pages/Auth"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Profile = lazy(() => import("./pages/Profile"));
+const Mentor = lazy(() => import("./pages/Mentor"));
+const Roadmap = lazy(() => import("./pages/Roadmap"));
+const Chat = lazy(() => import("./pages/Chat"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
+
+function PageLoader() {
+  return (
+    <div className="flex items-center justify-center h-full min-h-[50vh]">
+      <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+    </div>
+  );
+}
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated } = useAuth();
@@ -26,16 +36,18 @@ function AppRoutes() {
   const { isAuthenticated } = useAuth();
 
   return (
-    <Routes>
-      <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Landing />} />
-      <Route path="/auth" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Auth />} />
-      <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-      <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-      <Route path="/mentor" element={<ProtectedRoute><Mentor /></ProtectedRoute>} />
-      <Route path="/roadmap" element={<ProtectedRoute><Roadmap /></ProtectedRoute>} />
-      <Route path="/chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <Suspense fallback={<PageLoader />}>
+      <Routes>
+        <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Landing />} />
+        <Route path="/auth" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Auth />} />
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/mentor" element={<ProtectedRoute><Mentor /></ProtectedRoute>} />
+        <Route path="/roadmap" element={<ProtectedRoute><Roadmap /></ProtectedRoute>} />
+        <Route path="/chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
   );
 }
 
