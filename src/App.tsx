@@ -14,6 +14,7 @@ const Profile = lazy(() => import("./pages/Profile"));
 const Mentor = lazy(() => import("./pages/Mentor"));
 const Roadmap = lazy(() => import("./pages/Roadmap"));
 const Chat = lazy(() => import("./pages/Chat"));
+const Onboarding = lazy(() => import("./pages/Onboarding"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -48,6 +49,7 @@ function AppRoutes() {
         <Route path="/mentor" element={<ProtectedRoute><Mentor /></ProtectedRoute>} />
         <Route path="/roadmap" element={<ProtectedRoute><Roadmap /></ProtectedRoute>} />
         <Route path="/chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
+        <Route path="/onboarding" element={isAuthenticated ? <Onboarding /> : <Navigate to="/auth" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
