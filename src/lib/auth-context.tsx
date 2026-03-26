@@ -27,13 +27,13 @@ async function fetchAppUser(supaUser: SupabaseUser): Promise<AppUser> {
     .from("profiles")
     .select("name, avatar_url")
     .eq("user_id", supaUser.id)
-    .single();
+    .maybeSingle();
 
   const { data: roleRow } = await supabase
     .from("user_roles")
     .select("role")
     .eq("user_id", supaUser.id)
-    .single();
+    .maybeSingle();
 
   return {
     id: supaUser.id,
@@ -50,25 +50,33 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+    // Restore session first
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
       setSession(session);
       if (session?.user) {
-        const appUser = await fetchAppUser(session.user);
-        setUser(appUser);
-      } else {
-        setUser(null);
+        try {
+          const appUser = await fetchAppUser(session.user);
+          setUser(appUser);
+        } catch (e) {
+          console.error("Failed to fetch user profile:", e);
+        }
       }
       setIsLoading(false);
     });
 
-    supabase.auth.getSession().then(async ({ data: { session } }) => {
-      setSession(session);
-      if (session?.user) {
-        const appUser = await fetchAppUser(session.user);
-        setUser(appUser);
+    // Listen for subsequent auth changes (don't await inside callback)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        setSession(session);
+        if (session?.user) {
+          fetchAppUser(session.user)
+            .then(setUser)
+            .catch((e) => console.error("Failed to fetch user profile:", e));
+        } else {
+          setUser(null);
+        }
       }
-      setIsLoading(false);
-    });
+    );
 
     return () => subscription.unsubscribe();
   }, []);
