@@ -4,9 +4,10 @@ import { useAuth } from "@/lib/auth-context";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   LayoutDashboard, User, MessageSquare, Map, Brain, LogOut,
-  Sparkles, Briefcase, Menu, X,
+  Briefcase, Menu, X,
 } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import logoImg from "@/assets/logo.png";
 
 const sidebarLinks = {
   seeker: [
@@ -40,9 +41,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     <>
       <div className="p-4 sm:p-6 border-b border-border flex items-center justify-between">
         <Link to="/dashboard" className="flex items-center gap-2" onClick={handleNavClick}>
-          <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-            <Sparkles className="w-4 h-4 text-primary-foreground" />
-          </div>
+          <img src={logoImg} alt="Synapse" className="w-8 h-8 rounded-lg object-cover" />
           <span className="text-lg font-bold text-foreground">Synapse</span>
         </Link>
         {isMobile && (
@@ -117,9 +116,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             <Menu className="w-5 h-5" />
           </button>
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-gradient-primary flex items-center justify-center">
-              <Sparkles className="w-3.5 h-3.5 text-primary-foreground" />
-            </div>
+            <img src={logoImg} alt="Synapse" className="w-7 h-7 rounded-lg object-cover" />
             <span className="text-base font-bold text-foreground">Synapse</span>
           </div>
         </div>
