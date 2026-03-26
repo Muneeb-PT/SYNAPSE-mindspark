@@ -5,18 +5,30 @@ import { Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/lib/auth-context";
+import { toast } from "sonner";
 
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [role, setRole] = useState<"seeker" | "recruiter">("seeker");
-  const { login } = useAuth();
+  const [loading, setLoading] = useState(false);
+  const { login, signup } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    login(email, password, role);
+    setLoading(true);
+    if (isLogin) {
+      const { error } = await login(email, password);
+      if (error) { toast.error(error); setLoading(false); return; }
+    } else {
+      const { error } = await signup(email, password, name, role);
+      if (error) { toast.error(error); setLoading(false); return; }
+      toast.success("Account created! Check your email to confirm, or sign in now.");
+    }
+    setLoading(false);
     navigate("/dashboard");
   };
 
@@ -60,25 +72,38 @@ export default function Auth() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {!isLogin && (
-              <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">I am a</label>
-                <div className="grid grid-cols-2 gap-3">
-                  {(["seeker", "recruiter"] as const).map((r) => (
-                    <button
-                      key={r}
-                      type="button"
-                      onClick={() => setRole(r)}
-                      className={`p-3 rounded-lg border text-sm font-medium transition-all ${
-                        role === r
-                          ? "border-primary bg-primary/10 text-primary"
-                          : "border-border bg-card text-muted-foreground hover:border-primary/30"
-                      }`}
-                    >
-                      {r === "seeker" ? "🎯 Seeker" : "🏢 Recruiter"}
-                    </button>
-                  ))}
+              <>
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-1.5 block">Full Name</label>
+                  <Input
+                    type="text"
+                    placeholder="Alex Chen"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="bg-secondary border-border"
+                    required
+                  />
                 </div>
-              </div>
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-2 block">I am a</label>
+                  <div className="grid grid-cols-2 gap-3">
+                    {(["seeker", "recruiter"] as const).map((r) => (
+                      <button
+                        key={r}
+                        type="button"
+                        onClick={() => setRole(r)}
+                        className={`p-3 rounded-lg border text-sm font-medium transition-all ${
+                          role === r
+                            ? "border-primary bg-primary/10 text-primary"
+                            : "border-border bg-card text-muted-foreground hover:border-primary/30"
+                        }`}
+                      >
+                        {r === "seeker" ? "🎯 Seeker" : "🏢 Recruiter"}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </>
             )}
 
             <div>
@@ -102,22 +127,13 @@ export default function Auth() {
                 onChange={(e) => setPassword(e.target.value)}
                 className="bg-secondary border-border"
                 required
+                minLength={6}
               />
             </div>
 
-            <Button type="submit" className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90 h-11">
-              {isLogin ? "Sign In" : "Create Account"}
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-
-            <Button
-              type="button"
-              variant="outline"
-              className="w-full border-border hover:bg-secondary"
-              onClick={() => { login("demo@synapse.ai", "demo", "seeker"); navigate("/dashboard"); }}
-            >
-              <Sparkles className="mr-2 w-4 h-4" />
-              Try Demo (Seeker)
+            <Button type="submit" disabled={loading} className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90 h-11">
+              {loading ? "Please wait..." : isLogin ? "Sign In" : "Create Account"}
+              {!loading && <ArrowRight className="ml-2 w-4 h-4" />}
             </Button>
           </form>
 

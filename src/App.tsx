@@ -27,13 +27,16 @@ function PageLoader() {
 }
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, isLoading } = useAuth();
+  if (isLoading) return <PageLoader />;
   if (!isAuthenticated) return <Navigate to="/auth" replace />;
   return <AppLayout>{children}</AppLayout>;
 }
 
 function AppRoutes() {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, isLoading } = useAuth();
+
+  if (isLoading) return <PageLoader />;
 
   return (
     <Suspense fallback={<PageLoader />}>
