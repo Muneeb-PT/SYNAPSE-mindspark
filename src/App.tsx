@@ -14,6 +14,7 @@ const Profile = lazy(() => import("./pages/Profile"));
 const Mentor = lazy(() => import("./pages/Mentor"));
 const Roadmap = lazy(() => import("./pages/Roadmap"));
 const Chat = lazy(() => import("./pages/Chat"));
+const Onboarding = lazy(() => import("./pages/Onboarding"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
