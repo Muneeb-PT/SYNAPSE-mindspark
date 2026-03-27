@@ -36,15 +36,17 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 function AppRoutes() {
-  const { isAuthenticated, isLoading } = useAuth();
+  const { user, isAuthenticated, isLoading } = useAuth();
 
   if (isLoading) return <PageLoader />;
+
+  const homeRedirect = user?.role === "recruiter" ? "/recruiter" : "/dashboard";
 
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
-        <Route path="/" element={isAuthenticated ? <Navigate to={user?.role === "recruiter" ? "/recruiter" : "/dashboard"} /> : <Landing />} />
-        <Route path="/auth" element={isAuthenticated ? <Navigate to={user?.role === "recruiter" ? "/recruiter" : "/dashboard"} /> : <Auth />} />
+        <Route path="/" element={isAuthenticated ? <Navigate to={homeRedirect} /> : <Landing />} />
+        <Route path="/auth" element={isAuthenticated ? <Navigate to={homeRedirect} /> : <Auth />} />
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/mentor" element={<ProtectedRoute><Mentor /></ProtectedRoute>} />
