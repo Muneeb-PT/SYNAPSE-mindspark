@@ -15,6 +15,7 @@ const Mentor = lazy(() => import("./pages/Mentor"));
 const Roadmap = lazy(() => import("./pages/Roadmap"));
 const Chat = lazy(() => import("./pages/Chat"));
 const Onboarding = lazy(() => import("./pages/Onboarding"));
+const RecruiterDashboard = lazy(() => import("./pages/RecruiterDashboard"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -35,20 +36,23 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 function AppRoutes() {
-  const { isAuthenticated, isLoading } = useAuth();
+  const { user, isAuthenticated, isLoading } = useAuth();
 
   if (isLoading) return <PageLoader />;
+
+  const homeRedirect = user?.role === "recruiter" ? "/recruiter" : "/dashboard";
 
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
-        <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Landing />} />
-        <Route path="/auth" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Auth />} />
+        <Route path="/" element={isAuthenticated ? <Navigate to={homeRedirect} /> : <Landing />} />
+        <Route path="/auth" element={isAuthenticated ? <Navigate to={homeRedirect} /> : <Auth />} />
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/mentor" element={<ProtectedRoute><Mentor /></ProtectedRoute>} />
         <Route path="/roadmap" element={<ProtectedRoute><Roadmap /></ProtectedRoute>} />
         <Route path="/chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
+        <Route path="/recruiter" element={<ProtectedRoute><RecruiterDashboard /></ProtectedRoute>} />
         <Route path="/onboarding" element={isAuthenticated ? <Onboarding /> : <Navigate to="/auth" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
