@@ -43,8 +43,8 @@ function AppRoutes() {
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
-        <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Landing />} />
-        <Route path="/auth" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Auth />} />
+        <Route path="/" element={isAuthenticated ? <Navigate to={user?.role === "recruiter" ? "/recruiter" : "/dashboard"} /> : <Landing />} />
+        <Route path="/auth" element={isAuthenticated ? <Navigate to={user?.role === "recruiter" ? "/recruiter" : "/dashboard"} /> : <Auth />} />
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/mentor" element={<ProtectedRoute><Mentor /></ProtectedRoute>} />
