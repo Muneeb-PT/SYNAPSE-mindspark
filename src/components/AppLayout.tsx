@@ -18,8 +18,7 @@ const sidebarLinks = {
     { to: "/chat", label: "Messages", icon: MessageSquare },
   ],
   recruiter: [
-    { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-    { to: "/opportunities", label: "Opportunities", icon: Briefcase },
+    { to: "/recruiter", label: "Hiring Hub", icon: LayoutDashboard },
     { to: "/profile", label: "Profile", icon: User },
     { to: "/chat", label: "Messages", icon: MessageSquare },
   ],
