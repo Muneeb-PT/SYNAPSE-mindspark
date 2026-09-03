@@ -16,12 +16,13 @@
 </p>
 
 <p align="center">
-  Built in ~2 hours at <strong>KAPRICIOUS'26</strong>, KMEA Engineering College, Cochin — our first hackathon, first year of college.
+  Built in ~12 hours at <strong>KAPRICIOUS'26</strong>, KMEA Engineering College, Cochin — our first hackathon, first year of college.
 </p>
 
 ---
 
 Synapse is an AI‑first career intelligence platform. Instead of reducing a person to a resume, it builds a **living profile** — skills, goals, strengths, personality — and pairs it with an AI mentor and a fairness‑driven matching layer so job seekers and recruiters connect on fit, not keywords.
+
 
 ## Table of Contents
 
