@@ -4,9 +4,9 @@
 
 <h1 align="center">Synapse</h1>
 <p align="center"><strong>Your career deserves intelligence — not just a resume.</strong></p>
-
+ <p> https://muneeb-pt.github.io/SYNAPSE-mindspark/ </p>
 <p align="center">
- \\<p> https://muneeb-pt.github.io/SYNAPSE-mindspark/ </p>
+
   Last deployed by @Muneeb-PT Muneeb-PT 3 minute
   <img alt="status" src="https://img.shields.io/badge/status-hackathon_prototype-orange?style=flat-square" />
   <img alt="react" src="https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=white" />
