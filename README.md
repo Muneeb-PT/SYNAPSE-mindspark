@@ -6,7 +6,8 @@
 <p align="center"><strong>Your career deserves intelligence — not just a resume.</strong></p>
 
 <p align="center">
-  https://muneeb-pt.github.io/SYNAPSE-mindspark/ Last deployed by @Muneeb-PT Muneeb-PT 3 minute
+  https://muneeb-pt.github.io/SYNAPSE-mindspark/ 
+  Last deployed by @Muneeb-PT Muneeb-PT 3 minute
   <img alt="status" src="https://img.shields.io/badge/status-hackathon_prototype-orange?style=flat-square" />
   <img alt="react" src="https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=white" />
   <img alt="typescript" src="https://img.shields.io/badge/TypeScript-5.8-3178C6?style=flat-square&logo=typescript&logoColor=white" />
