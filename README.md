@@ -1,221 +1,322 @@
-\<p align="center">   \<img src="public/logo.png" width="84" alt="SYNAPSE logo" /> \</p>
+<div align="center">
 
-\<h1 align="center">SYNAPSE\</h1>
+  <img src="public/logo.png" width="90" alt="SYNAPSE Logo" />
 
-\<p align="center">   \<strong>Your career deserves intelligence — not just a resume.\</strong> \</p>
+  # SYNAPSE
 
-\<p align="center">   \<a href="[https://muneeb-pt.github.io/SYNAPSE-mindspark/](https://muneeb-pt.github.io/SYNAPSE-mindspark/)">     \<strong>🚀 View Live Demo\</strong>   \</a> \</p>
+  ### Your career deserves intelligence — not just a resume.
 
-\<p align="center">   \<img alt="status" src="[https://img.shields.io/badge/status-hackathon_prototype-orange?style=flat-square](https://img.shields.io/badge/status-hackathon_prototype-orange?style=flat-square)" />   \<img alt="React" src="[https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=white](https://img.shields.io/badge/React-18-61DAFB?style=flat-square\&logo=react\&logoColor=white)" />   \<img alt="TypeScript" src="[https://img.shields.io/badge/TypeScript-5.8-3178C6?style=flat-square&logo=typescript&logoColor=white](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=flat-square\&logo=typescript\&logoColor=white)" />   \<img alt="Vite" src="[https://img.shields.io/badge/Vite-5-646CFF?style=flat-square&logo=vite&logoColor=white](https://img.shields.io/badge/Vite-5-646CFF?style=flat-square\&logo=vite\&logoColor=white)" />   \<img alt="Supabase" src="[https://img.shields.io/badge/Supabase-Postgres%20%2B%20Auth-3ECF8E?style=flat-square&logo=supabase&logoColor=white](https://img.shields.io/badge/Supabase-Postgres%20%2B%20Auth-3ECF8E?style=flat-square\&logo=supabase\&logoColor=white)" />   \<img alt="Tailwind" src="[https://img.shields.io/badge/Tailwind-shadcn%2Fui-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white](https://img.shields.io/badge/Tailwind-shadcn%2Fui-38BDF8?style=flat-square\&logo=tailwindcss\&logoColor=white)" />   \<img alt="License" src="[https://img.shields.io/badge/license-MIT-informational?style=flat-square](https://img.shields.io/badge/license-MIT-informational?style=flat-square)" /> \</p>
+  **An AI-assisted career intelligence platform exploring a smarter way to understand talent, develop skills, and guide careers.**
 
-\<p align="center">   Built in \<strong>2 hours\</strong> at \<strong>KAPRICIOUS'26\</strong>,   KMEA Engineering College, Cochin — our first hackathon as first-year students. \</p>
+  <br />
 
----
+  [**🚀 Live Demo**](https://muneeb-pt.github.io/SYNAPSE-mindspark/) · [**Source Code**](https://github.com/Muneeb-PT/SYNAPSE-mindspark)
 
-## 💡 About SYNAPSE
+  <br />
 
-SYNAPSE is an AI-assisted career intelligence platform designed to bridge the gap between job seekers and recruiters.
+  ![Hackathon Prototype](https://img.shields.io/badge/Status-Hackathon%20Prototype-orange?style=for-the-badge)
+  ![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+  ![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+  ![Supabase](https://img.shields.io/badge/Supabase-Backend-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white)
 
-Many students have potential but lack the skills, experience, or career guidance needed to become employable. At the same time, recruiters face challenges identifying suitable candidates through traditional resumes and keyword-based filtering.
+  <br />
 
-SYNAPSE explores a different approach.
+  **Built in 2 hours · KAPRICIOUS'26 · KMEA Engineering College, Cochin**
 
-Instead of reducing a person to a resume, it builds a **living profile** around their skills, goals, strengths, interests, and personality. An AI mentor provides personalized career guidance, while a smarter matching concept aims to connect job seekers and recruiters based on potential and suitability — not just keywords.
+  *Our first hackathon as first-year engineering students.*
 
-## 📸 Screenshots
-
-\<p align="center">
-&#x20; \<strong>Dashboard\</strong>\<br/>
-&#x20; \<img src="assets/dashboord.png" width="90%" alt="SYNAPSE Dashboard" />
-\</p>
-
-\<p align="center">
-&#x20; \<strong>Home\</strong>\<br/>
-&#x20; \<img src="assets/home.png" width="90%" alt="SYNAPSE Home Page" />
-\</p>
-
-\<p align="center">
-&#x20; \<strong>Login\</strong>\<br/>
-&#x20; \<img src="assets/login.png" width="90%" alt="SYNAPSE Login Page" />
-\</p>
+</div>
 
 ---
 
-## ✨ Features
+## 01. The Idea
 
-|     | Feature                | Description                                                                          |
-| --- | ---------------------- | ------------------------------------------------------------------------------------ |
-| 🧠  | **AI Mentor Engine**   | A conversational mentor that provides personalized career guidance.                  |
-| 🎯  | **Smart Matching**     | Aims to connect job seekers and recruiters through suitability-based matching.       |
-| 🗺️ | **Career Roadmaps**    | Milestone-based learning paths that help users work toward career goals.             |
-| 👤  | **Deep Profiles**      | Captures interests, work preferences, skills, and goals beyond a traditional resume. |
-| ⚡   | **Micro-Interactions** | Lightweight polls and prompts designed to refine user profiles over time.            |
-| 🔒  | **Privacy First**      | Uses Supabase Row-Level Security to restrict access to user data.                    |
+Traditional recruitment often starts with a resume. But a resume cannot always communicate someone's potential, interests, learning progress, or long-term goals.
 
-## ⚙️ How It Works
+Students may have the motivation to build a career but lack direction, relevant skills, or access to meaningful guidance. Recruiters, meanwhile, need better ways to understand candidates beyond lists of keywords.
+
+**SYNAPSE explores a more personal approach to career intelligence.**
+
+The concept is built around a living professional profile that brings together:
+
+- Skills and proficiency levels.
+- Career interests and long-term goals.
+- Education and experience.
+- Strengths and areas for improvement.
+- Personalized career guidance.
+
+The goal is to move beyond simply asking *"What does this person know?"* and start exploring *"What can this person become?"*
+
+## 02. Product Overview
+
+| Component | Purpose |
+|---|---|
+| AI Mentor | Conversational career guidance powered by Gemini 3 Flash. |
+| Living Profiles | A richer representation of an individual's skills, interests, and goals. |
+| Career Roadmaps | Structured career-development experiences. |
+| Skill Intelligence | Rule-based skill-gap and readiness calculations. |
+| Recruiter Experience | A prototype of candidate discovery beyond traditional resumes. |
+
+*Some components are demonstrations or concept implementations rather than fully connected production features. See Project Status below.*
+
+## 03. Screenshots
+
+<div align="center">
+
+  ### Home Page
+
+  <img src="assets/home.png" width="95%" alt="SYNAPSE Home Page" />
+
+  <br /><br />
+
+  ### Dashboard
+
+  <img src="assets/dashboord.png" width="95%" alt="SYNAPSE Dashboard" />
+
+  <br /><br />
+
+  ### Login
+
+  <img src="assets/login.png" width="85%" alt="SYNAPSE Login Page" />
+
+</div>
+
+---
+
+## 04. How It Works
+
+SYNAPSE uses a React frontend, Supabase for authentication and data storage, and a Supabase Edge Function to communicate with the AI service.
 
 ```mermaid
-flowchart LR
-    U[User] -->|Sign in / Sign up| A[Supabase Auth]
-    U -->|Browse| F[React + Vite Frontend]
-    F -->|Profile, skills, education| D[(Supabase Postgres + RLS)]
-    F -->|Chat message| E[Edge Function: ai-mentor]
-    E -->|Streamed request| G[Lovable AI Gateway]
-    G -->|Gemini 3 Flash Preview| E
-    E -->|Streamed response| F
+flowchart TD
+    U[User] --> F[React + Vite Frontend]
+
+    F --> A[Supabase Authentication]
+    F --> D[(Supabase PostgreSQL)]
+
+    F -->|Mentor Messages| E[Supabase Edge Function]
+
+    E --> G[Lovable AI Gateway]
+    G --> M[Gemini 3 Flash Preview]
+
+    M --> E
+    E -->|Streamed Response| F
 ```
 
-The frontend is a Vite + React single-page application.
+### Application Architecture
 
-Authentication, profile data, and skills, education, experience, and certifications are stored in Supabase Postgres with Row-Level Security policies.
+- **Frontend:** React and TypeScript provide the application interface.
+- **Authentication:** Supabase Auth handles email/password authentication.
+- **Database:** PostgreSQL stores user profile information and related records.
+- **Security:** Row-Level Security policies help restrict access to user data.
+- **AI Integration:** The Mentor feature communicates with Gemini 3 Flash Preview through the Lovable AI Gateway.
 
-Messages from the Mentor page are sent to a Supabase Edge Function (`supabase/functions/ai-mentor`), which requests a response from the Lovable AI Gateway using Gemini 3 Flash Preview and streams the response back to the frontend.
+---
 
-## 🛠️ Tech Stack
+## 05. Technology Stack
 
-**Frontend** — React 18 · TypeScript · Vite · React Router · TanStack Query · React Hook Form · Zod · Tailwind CSS · shadcn/ui · Framer Motion · Recharts
+| Layer | Technologies |
+|---|---|
+| Frontend | React 18, TypeScript, Vite |
+| UI | Tailwind CSS, shadcn/ui, Radix UI |
+| Routing | React Router |
+| State & Data | TanStack Query |
+| Forms & Validation | React Hook Form, Zod |
+| Backend | Supabase |
+| Database | PostgreSQL |
+| Authentication | Supabase Auth |
+| Serverless Functions | Supabase Edge Functions, Deno |
+| AI | Lovable AI Gateway, Gemini 3 Flash Preview |
+| Testing | Vitest, Testing Library, Playwright dependencies |
+| Development | Lovable, ESLint |
 
-**Backend** — Supabase · PostgreSQL · Supabase Auth · Row-Level Security · Edge Functions (Deno)
+---
 
-**AI Integration** — Lovable AI Gateway · Gemini 3 Flash Preview
+## 06. Project Status
 
-**Testing & Tooling** — ESLint · Vitest · Testing Library · Playwright
+SYNAPSE was developed during a **two-hour hackathon**. It is an early working prototype, not a finished recruitment platform.
 
-**Development Platform** — [Lovable](https://lovable.dev)
+Transparency about implementation is important.
 
-## 🚧 Project Status
-
-SYNAPSE was developed as a **2-hour hackathon prototype**. The following distinction is important when evaluating its current implementation.
-
-### Live and Working
+### Implemented
 
 - Email/password authentication through Supabase.
-- User profile, skills, education, experience, and certifications persisted in PostgreSQL.
-- Row-Level Security policies for user data.
-- AI Mentor chat with streamed responses from Gemini 3 Flash through the `ai-mentor` Edge Function.
+- User profile and related information stored in Supabase.
+- Database access protected through Row-Level Security policies.
+- AI Mentor integration through a Supabase Edge Function.
+- Streaming AI responses through the Lovable AI Gateway.
 
-### Prototype / Demo Implementation
+### Prototype / Incomplete
 
-- Dashboard, Roadmap, additional Profile sections, and Recruiter candidate listings currently use mock data from `src/lib/mock-data.ts`.
-- Skill-gap and career-readiness calculations in `use-career-intelligence.ts` use predefined rules rather than an AI-driven evaluation.
-- Some matching and recruiter features represent the product concept and require further development.
+- Dashboard, Roadmap, and some Recruiter and Profile sections use demonstration data.
+- Career-readiness and skill-gap calculations use predefined rules.
+- Candidate matching is not yet a complete, production-ready matching engine.
+- Some planned recruiter workflows still require backend development.
 
-These limitations reflect the prototype's development scope and provide clear opportunities for future improvements.
+### Development Priorities
 
-## 🚀 Getting Started
+- Connect remaining demonstration screens to live database records.
+- Improve career-readiness and skill-gap evaluation.
+- Develop a proper candidate-matching system.
+- Add persistent AI Mentor conversations.
+- Expand recruiter functionality.
 
-### Prerequisites
+---
 
-- Node.js 18+
-- A [Supabase](https://supabase.com) project
-- Supabase CLI (optional, for local Edge Function development)
+## 07. Run Locally
 
-### 1. Clone the Repository
+### Requirements
+
+- Node.js 18 or later.
+- npm.
+- A Supabase project.
+- Supabase CLI for Edge Function deployment.
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Muneeb-PT/SYNAPSE-mindspark.git
 cd SYNAPSE-mindspark
+```
+
+### 2. Install dependencies
+
+```bash
 npm install
 ```
 
-### 2. Configure Environment Variables
+### 3. Configure environment variables
 
-Copy the example environment file:
+Create a `.env` file in the project root:
 
-```bash
-cp .env.example .env
+```env
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_publishable_key
 ```
 
-Configure the following variables using your Supabase project details:
+Use the corresponding values from your Supabase project settings.
 
-| Variable                        | Description                   |
-| ------------------------------- | ----------------------------- |
-| `VITE_SUPABASE_URL`             | Supabase project URL          |
-| `VITE_SUPABASE_PUBLISHABLE_KEY` | Supabase public/anon key      |
-| `VITE_SUPABASE_PROJECT_ID`      | Supabase project reference ID |
+**Important:** Never commit private API keys or service-role keys to the repository.
 
-### 3. Configure the AI Mentor
+### 4. Configure the AI Mentor
 
-Set the required secret on the Supabase side:
+Set the Lovable AI Gateway key as a Supabase secret:
 
 ```bash
 supabase secrets set LOVABLE_API_KEY=your_lovable_gateway_key
+```
+
+Deploy the Edge Function:
+
+```bash
 supabase functions deploy ai-mentor
 ```
 
-### 4. Apply the Database Schema
+### 5. Configure the database
+
+Link your Supabase project:
 
 ```bash
-supabase link --project-ref your-project-ref
+supabase link --project-ref your-project-reference
+```
+
+Apply the available migrations:
+
+```bash
 supabase db push
 ```
 
-### 5. Run the Application
+### 6. Start the development server
 
 ```bash
 npm run dev
 ```
 
-The development server runs at:
+Open:
 
 ```text
 http://localhost:8080
 ```
 
-Additional commands:
+### Available Scripts
 
-```bash
-npm run test         # Run unit tests
-npm run test:watch   # Run tests in watch mode
-npx playwright test  # Run end-to-end tests
-npm run build        # Build for production
-```
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
+| `npm run build:dev` | Build using development mode |
+| `npm run preview` | Preview the production build |
+| `npm run lint` | Run ESLint |
+| `npm run test` | Run Vitest tests |
+| `npm run test:watch` | Run tests in watch mode |
 
-## 📁 Project Structure
+---
+
+## 08. Repository Structure
 
 ```text
-src/
-├── pages/                  # Landing, Auth, Dashboard, Mentor, Roadmap, etc.
-├── components/
-│   ├── AppLayout.tsx       # Authenticated application layout
-│   └── ui/                 # Reusable UI components
-├── hooks/                  # Career intelligence and profile hooks
-├── integrations/
-│   └── supabase/           # Supabase client and database types
-├── lib/                    # Authentication, mock data, utilities
-└── test/                   # Vitest setup
-
-supabase/
-├── functions/
-│   └── ai-mentor/          # AI Mentor Edge Function
-└── migrations/             # Database schema and RLS policies
-
-assets/
-├── dashboord.png
-├── home.png
-└── login.png
+SYNAPSE-mindspark/
+│
+├── public/
+│   └── logo.png
+│
+├── assets/
+│   ├── home.png
+│   ├── dashboord.png
+│   └── login.png
+│
+├── src/
+│   ├── components/
+│   │   ├── ui/
+│   │   └── AppLayout.tsx
+│   │
+│   ├── hooks/
+│   ├── integrations/
+│   │   └── supabase/
+│   ├── lib/
+│   ├── pages/
+│   ├── test/
+│   └── main.tsx
+│
+├── supabase/
+│   ├── functions/
+│   │   └── ai-mentor/
+│   └── migrations/
+│
+├── index.html
+├── package.json
+├── vite.config.ts
+├── tailwind.config.ts
+└── README.md
 ```
 
-## 🗺️ Roadmap
+---
 
-- [ ] Replace mock data on Dashboard, Roadmap, and Recruiter views with live Supabase queries.
-- [ ] Persist AI Mentor chat history.
-- [ ] Develop a more comprehensive skill-gap and career-readiness evaluation system.
-- [ ] Build a scored candidate-matching pipeline.
-- [ ] Add recruiter actions such as shortlisting, messaging, and candidate exports.
-- [ ] Improve and deploy a more complete live demonstration.
+## 09. The Team
 
-## 👥 Team
+Developed by a team of first-year BTech students at **KMEA Engineering College, Cochin, India**, during KAPRICIOUS'26.
 
-Developed by a team of first-year students at **KMEA Engineering College, Cochin**, during **KAPRICIOUS'26**.
+| Team Member |
+|---|
+| Mohammed Muneeb PT |
+| Udhav Krishna M |
+| Anandakrishnan B |
+| Riyan K R |
 
-- **Mohammed Muneeb PT**
-- **Udhav Krishna M**
-- **Anandakrishnan B**
-- **Riyan K R**
+**Two hours. One team. Our first hackathon. One working prototype.**
 
-Our first hackathon. Two hours. One team. One working prototype.
+---
 
-## 📄 License
+## 10. License
 
-Distributed under the MIT License. See [`LICENSE`](./LICENSE) for details.
+This project is distributed under the MIT License. See [`LICENSE`](LICENSE) for details.
+
+---
+
+<div align="center">
+
+  **SYNAPSE — Beyond Resumes. Towards Potential.**
+
+  <sub>Built with curiosity, collaboration, and a two-hour deadline.</sub>
+
+</div>
