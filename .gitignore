@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables (keep local secrets out of Git)
+.env
+.env.*
+!.env.example

@@ -71,7 +71,7 @@ The goal is to move beyond simply asking *"What does this person know?"* and sta
 
   ### Dashboard
 
-  <img src="assets/dashboord.png" width="95%" alt="SYNAPSE Dashboard" />
+  <img src="assets/dashboard.png" width="95%" alt="SYNAPSE Dashboard" />
 
   <br /><br />
 
@@ -127,7 +127,7 @@ flowchart TD
 | Authentication | Supabase Auth |
 | Serverless Functions | Supabase Edge Functions, Deno |
 | AI | Lovable AI Gateway, Gemini 3 Flash Preview |
-| Testing | Vitest, Testing Library, Playwright dependencies |
+| Testing | Vitest, Testing Library; Playwright config/dependency is present, but no dedicated E2E test script is currently defined |
 | Development | Lovable, ESLint |
 
 ---
@@ -149,7 +149,7 @@ Transparency about implementation is important.
 ### Prototype / Incomplete
 
 - Dashboard, Roadmap, and some Recruiter and Profile sections use demonstration data.
-- Career-readiness and skill-gap calculations use predefined rules.
+- Career-readiness and skill-gap calculations use predefined rules and are indicative heuristics, not validated career assessments.
 - Candidate matching is not yet a complete, production-ready matching engine.
 - Some planned recruiter workflows still require backend development.
 
@@ -158,7 +158,7 @@ Transparency about implementation is important.
 - Connect remaining demonstration screens to live database records.
 - Improve career-readiness and skill-gap evaluation.
 - Develop a proper candidate-matching system.
-- Add persistent AI Mentor conversations.
+- Add persistent AI Mentor conversations (chat history is currently held only in page state and is lost when the page is refreshed).
 - Expand recruiter functionality.
 
 ---
@@ -187,16 +187,22 @@ npm install
 
 ### 3. Configure environment variables
 
-Create a `.env` file in the project root:
+Copy `.env.example` to `.env` in the project root, then fill in your Supabase project values:
+
+```bash
+cp .env.example .env
+```
+
+Then edit `.env`:
 
 ```env
-VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_URL=https://your-project-ref.supabase.co
 VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_publishable_key
 ```
 
 Use the corresponding values from your Supabase project settings.
 
-**Important:** Never commit private API keys or service-role keys to the repository.
+**Important:** The Supabase publishable key is intended for client-side use. Never put a service-role key or the Lovable gateway secret in this file. The AI Mentor Edge Function requires an authenticated Supabase user session. Never commit private API keys or service-role keys to the repository.
 
 ### 4. Configure the AI Mentor
 
@@ -252,6 +258,8 @@ http://localhost:8080
 
 ---
 
+The readiness percentage is calculated by comparing entered skill levels with predefined target levels and averaging those ratios. It is a planning aid only; target levels, difficulty scores, and time estimates are illustrative assumptions rather than independently validated labour-market data.
+
 ## 08. Repository Structure
 
 ```text
@@ -262,7 +270,7 @@ SYNAPSE-mindspark/
 │
 ├── assets/
 │   ├── home.png
-│   ├── dashboord.png
+│   ├── dashboard.png
 │   └── login.png
 │
 ├── src/
