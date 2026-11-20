@@ -74,8 +74,9 @@ export default function Auth() {
             {!isLogin && (
               <>
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">Full Name</label>
+                  <label htmlFor="signup-name" className="text-sm font-medium text-foreground mb-1.5 block">Full Name</label>
                   <Input
+                    id="signup-name"
                     type="text"
                     placeholder="Alex Chen"
                     value={name}
@@ -85,8 +86,8 @@ export default function Auth() {
                   />
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">I am a</label>
-                  <div className="grid grid-cols-2 gap-3">
+                  <span id="signup-role-label" className="text-sm font-medium text-foreground mb-2 block">I am a</span>
+                  <div role="group" aria-labelledby="signup-role-label" className="grid grid-cols-2 gap-3">
                     {(["seeker", "recruiter"] as const).map((r) => (
                       <button
                         key={r}
@@ -107,8 +108,9 @@ export default function Auth() {
             )}
 
             <div>
-              <label className="text-sm font-medium text-foreground mb-1.5 block">Email</label>
+              <label htmlFor="auth-email" className="text-sm font-medium text-foreground mb-1.5 block">Email</label>
               <Input
+                id="auth-email"
                 type="email"
                 placeholder="you@example.com"
                 value={email}
@@ -119,8 +121,9 @@ export default function Auth() {
             </div>
 
             <div>
-              <label className="text-sm font-medium text-foreground mb-1.5 block">Password</label>
+              <label htmlFor="auth-password" className="text-sm font-medium text-foreground mb-1.5 block">Password</label>
               <Input
+                id="auth-password"
                 type="password"
                 placeholder="••••••••"
                 value={password}

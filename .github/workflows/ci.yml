@@ -31,7 +31,7 @@ jobs:
       # npm install reconciles it in the runner so CI can validate the app.
       # Regenerate and commit package-lock.json locally to restore npm ci.
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: npm install --ignore-scripts --no-audit --no-fund
 
       - name: Run ESLint
         run: npm run lint
