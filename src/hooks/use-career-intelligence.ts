@@ -8,6 +8,7 @@ export interface SkillGap {
   priority: "critical" | "important" | "nice-to-have";
 }
 
+/** Indicative prototype estimate based on predefined target-skill heuristics; not a validated assessment. */
 export interface RealityCheck {
   goalLabel: string;
   difficultyScore: number; // 0-100
@@ -100,6 +101,8 @@ export function useCareerIntelligence(
       return { skill: s.name, level: s.level, label, color };
     });
 
+    // Prototype heuristic: average each entered skill's percentage of the predefined target level.
+    // Targets and time estimates are illustrative, not validated labour-market benchmarks.
     // Reality checks
     const realityChecks: RealityCheck[] = (dreamGoals || [])
       .filter((g) => goalRequirements[g])
@@ -155,5 +158,5 @@ export function useCareerIntelligence(
       .sort((a, b) => b.gap - a.gap);
 
     return { confidenceMetrics, realityChecks, skillGaps };
-  }, [skills, dreamGoals, strengths]);
+  }, [skills, dreamGoals]);
 }
