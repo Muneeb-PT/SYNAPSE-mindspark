@@ -117,11 +117,12 @@ export default function Mentor() {
           }
         }
       }
-    } catch (e: any) {
-      console.error("AI Mentor error:", e);
+    } catch (error: unknown) {
+      console.error("AI Mentor error:", error);
+      const errorMessage = error instanceof Error ? error.message : "Something went wrong.";
       setMessages((prev) => [
         ...prev,
-        { id: Date.now().toString(), role: "assistant", content: `❌ **Error:** ${e.message || "Something went wrong."}` },
+        { id: Date.now().toString(), role: "assistant", content: `❌ **Error:** ${errorMessage}` },
       ]);
     } finally {
       setIsStreaming(false);
