@@ -135,7 +135,7 @@ export default function Mentor() {
     const userMsg: ChatMessage = { id: Date.now().toString(), role: "user", content };
     setInput("");
     setMessages((prev) => [...prev, userMsg]);
-    streamChat([...messages, userMsg]);
+    void streamChat([...messages, userMsg]);
   };
 
   return (
