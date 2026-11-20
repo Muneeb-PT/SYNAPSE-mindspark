@@ -270,7 +270,7 @@ SYNAPSE-mindspark/
 │
 ├── assets/
 │   ├── home.png
-│   ├── dashboord.png
+│   ├── dashboard.png
 │   └── login.png
 │
 ├── src/
