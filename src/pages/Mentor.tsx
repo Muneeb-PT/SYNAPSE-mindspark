@@ -26,7 +26,7 @@ const quickActions = [
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/ai-mentor`;
 
 export default function Mentor() {
-  const { user } = useAuth();
+  const { user, session } = useAuth();
   const { data: profile } = useProfile(user?.id);
   const { data: skills } = useSkills(user?.id);
   const isMobile = useIsMobile();
@@ -35,7 +35,7 @@ export default function Mentor() {
     {
       id: "welcome",
       role: "assistant",
-      content: "👋 **Welcome to DeepProfile AI Mentor!**\n\nI'm your personal career intelligence assistant. I can:\n\n🎓 **Recommend courses & tutorials** from Coursera, Udemy, YouTube, and more\n📊 **Analyze your skill gaps** and prioritize what to learn\n🗺️ **Create learning roadmaps** tailored to your goals\n💼 **Guide your career path** with actionable steps\n\nTry the quick actions below or ask me anything!",
+      content: "👋 **Welcome to SYNAPSE AI Mentor!**\n\nI'm your personal career intelligence assistant. I can:\n\n🎓 **Recommend courses & tutorials** from Coursera, Udemy, YouTube, and more\n📊 **Analyze your skill gaps** and prioritize what to learn\n🗺️ **Create learning roadmaps** tailored to your goals\n💼 **Guide your career path** with actionable steps\n\nTry the quick actions below or ask me anything!",
     },
   ]);
   const [input, setInput] = useState("");
@@ -58,11 +58,16 @@ export default function Mentor() {
     let assistantContent = "";
 
     try {
+      if (!session?.access_token) {
+        throw new Error("Please sign in again to use the AI Mentor.");
+      }
+
       const resp = await fetch(CHAT_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+          Authorization: `Bearer ${session.access_token}`,
         },
         body: JSON.stringify({
           messages: chatMessages.map((m) => ({ role: m.role, content: m.content })),
@@ -181,7 +186,7 @@ export default function Mentor() {
                 {msg.role === "assistant" && (
                   <div className="flex items-center gap-1.5 mb-2">
                     <Sparkles className="w-3 h-3 text-primary" />
-                    <span className="text-xs font-medium text-primary">DeepProfile AI</span>
+                    <span className="text-xs font-medium text-primary">SYNAPSE AI</span>
                   </div>
                 )}
                 <div className="prose prose-sm dark:prose-invert max-w-none [&_a]:text-primary [&_a]:underline">
