@@ -416,23 +416,23 @@ export default function RecruiterDashboard() {
             >
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 p-4 rounded-xl border border-border bg-card mb-4">
                 <div>
-                  <label className="text-xs text-muted-foreground mb-1 block">Min Skill Match</label>
-                  <Input type="number" min={0} max={100} placeholder="0"
+                  <label htmlFor="filter-min-skill" className="text-xs text-muted-foreground mb-1 block">Min Skill Match</label>
+                  <Input id="filter-min-skill" type="number" min={0} max={100} placeholder="0"
                     value={filters.minSkillMatch || ""} onChange={(e) => setFilters((f) => ({ ...f, minSkillMatch: Number(e.target.value) }))} />
                 </div>
                 <div>
-                  <label className="text-xs text-muted-foreground mb-1 block">Personality Type</label>
-                  <Input placeholder="e.g. Logical, Creative"
+                  <label htmlFor="filter-personality" className="text-xs text-muted-foreground mb-1 block">Personality Type</label>
+                  <Input id="filter-personality" placeholder="e.g. Logical, Creative"
                     value={filters.personalityType} onChange={(e) => setFilters((f) => ({ ...f, personalityType: e.target.value }))} />
                 </div>
                 <div>
-                  <label className="text-xs text-muted-foreground mb-1 block">Interest Domain</label>
-                  <Input placeholder="e.g. AI, Web, Cloud"
+                  <label htmlFor="filter-interest" className="text-xs text-muted-foreground mb-1 block">Interest Domain</label>
+                  <Input id="filter-interest" placeholder="e.g. AI, Web, Cloud"
                     value={filters.interestDomain} onChange={(e) => setFilters((f) => ({ ...f, interestDomain: e.target.value }))} />
                 </div>
                 <div>
-                  <label className="text-xs text-muted-foreground mb-1 block">Min Growth Potential</label>
-                  <Input type="number" min={0} max={100} placeholder="0"
+                  <label htmlFor="filter-growth" className="text-xs text-muted-foreground mb-1 block">Min Growth Potential</label>
+                  <Input id="filter-growth" type="number" min={0} max={100} placeholder="0"
                     value={filters.minGrowthPotential || ""} onChange={(e) => setFilters((f) => ({ ...f, minGrowthPotential: Number(e.target.value) }))} />
                 </div>
               </div>
@@ -751,8 +751,8 @@ export default function RecruiterDashboard() {
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="text-[10px] text-muted-foreground mb-1 block">Work Style</label>
-                <select value={oppForm.workStyle}
+                <label htmlFor="opportunity-work-style" className="text-[10px] text-muted-foreground mb-1 block">Work Style</label>
+                <select id="opportunity-work-style" value={oppForm.workStyle}
                   onChange={(e) => setOppForm((f) => ({ ...f, workStyle: e.target.value }))}
                   className="w-full rounded-md border border-border bg-secondary p-2 text-xs text-foreground">
                   <option value="team">Team-based</option>
@@ -761,8 +761,8 @@ export default function RecruiterDashboard() {
                 </select>
               </div>
               <div>
-                <label className="text-[10px] text-muted-foreground mb-1 block">Environment</label>
-                <select value={oppForm.environment}
+                <label htmlFor="opportunity-environment" className="text-[10px] text-muted-foreground mb-1 block">Environment</label>
+                <select id="opportunity-environment" value={oppForm.environment}
                   onChange={(e) => setOppForm((f) => ({ ...f, environment: e.target.value }))}
                   className="w-full rounded-md border border-border bg-secondary p-2 text-xs text-foreground">
                   <option value="fast-paced">Fast-paced</option>
@@ -774,8 +774,8 @@ export default function RecruiterDashboard() {
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="text-[10px] text-muted-foreground mb-1 block">Learning Opportunity</label>
-                <select value={oppForm.learningLevel}
+                <label htmlFor="opportunity-learning-level" className="text-[10px] text-muted-foreground mb-1 block">Learning Opportunity</label>
+                <select id="opportunity-learning-level" value={oppForm.learningLevel}
                   onChange={(e) => setOppForm((f) => ({ ...f, learningLevel: e.target.value }))}
                   className="w-full rounded-md border border-border bg-secondary p-2 text-xs text-foreground">
                   <option value="high">High</option>
@@ -784,8 +784,8 @@ export default function RecruiterDashboard() {
                 </select>
               </div>
               <div>
-                <label className="text-[10px] text-muted-foreground mb-1 block">Growth Path</label>
-                <Input placeholder="e.g. Junior → Senior → Lead" value={oppForm.growthPath}
+                <label htmlFor="opportunity-growth-path" className="text-[10px] text-muted-foreground mb-1 block">Growth Path</label>
+                <Input id="opportunity-growth-path" placeholder="e.g. Junior → Senior → Lead" value={oppForm.growthPath}
                   onChange={(e) => setOppForm((f) => ({ ...f, growthPath: e.target.value }))} className="text-xs" />
               </div>
             </div>
