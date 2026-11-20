@@ -1,1 +1,5 @@
 project_id = "mqkqxsepblwwwbbkvwyo"
+
+[functions.ai-mentor]
+# Require a valid Supabase user access token for AI Mentor requests.
+verify_jwt = true
